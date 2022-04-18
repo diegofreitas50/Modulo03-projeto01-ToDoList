@@ -41,7 +41,7 @@ const updateHumoristaService = (id, humoristaEdited) => {
   humoristaEdited['id'] = id;
   const humoristaIndex = humoristas.findIndex((humorista) => humorista.id == id);
   humoristas[humoristaIndex] = humoristaEdited;
-  return humoristaIndex;
+  return humoristaEdited;
 };
 
 const deleteHumoristaService = (id) => {
