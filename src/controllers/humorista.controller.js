@@ -86,7 +86,13 @@ const deleteHumoristaController = (req, res) => {
     return res.status(400).send({ message: 'Id inválido!' });
   }
 
-  humoristaService.deleteHumoristaService(idParam);  
+  const chosenHumorista = humoristaService.humoristaByIdService(idParam);
+
+  if (!chosenHumorista) {
+    return res.status(404).send({ message: 'Humorista não encontrado!' });
+  }
+
+  humoristaService.deleteHumoristaService(idParam); 
   res.send({ message: 'Humorista deletado com sucesso!' });
 };
 
